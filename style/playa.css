@@ -1,0 +1,94 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+html,body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+p,h1,h2,h3,h4 {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+  background: #f9f9f9;
+  color: #1E1E1E;
+}
+
+.container {
+}
+
+#output {
+  position: relative;
+  height: 100%;
+  color: #222222;
+  background: white;
+  overflow: auto;
+}
+
+section {
+  padding: 0px 13px;
+  position: relative;
+}
+#section-info {
+  padding-top: 10px;
+}
+#section-install {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#section-description {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 13px;
+}
+
+#header {
+  width: 100%;
+}
+
+#badges {
+  width: 100%;
+}
+
+#logo {
+  width: 48px;
+  vertical-align: bottom;
+
+}
+#info {
+  display: inline-block;
+  box-sizing: border-box;
+
+}
+#appname {
+  display: block;
+  font-size: 18px;
+  white-space: pre-line;
+  word-wrap: break-word;
+  max-width: 200px;;
+}
+#devname {
+  font-size: 13.33px;
+  color: #727272;
+}
+#wishlist {
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+#install {
+  height: 35px;
+  width: 120px;;;
+}
+#readmore{
+  color: #b2cb39;
+  text-transform: uppercase;
+}
+#gallery {
+  width: 100%;
+}

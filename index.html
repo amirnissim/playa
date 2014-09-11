@@ -29,13 +29,33 @@
             <label>App Description</label>
             <input ng-model="appDescription" type="text" class="form-control">
           </div>
+
+          <div class="form-group">
+            <label>Header Image</label>
+            <span class="help-block">One of the following or any image URL</span>
+            <div class="radio">
+              <label>
+                <input ng-model="headerImg" type="radio" value="images/header.jpg"> Tagline + Device
+              </label>
+              <div class="radio">
+                <label>
+                  <input ng-model="headerImg" type="radio" value="images/header_alt1.jpg"> Brand + Device
+                </label>
+              </div>
+              <label>
+                <input ng-model="headerImg" type="radio" value="images/header_alt2.jpg"> Brand Only
+              </label>
+            </div>
+
+            <input ng-model="customHeaderImg" type="text" class="form-control" placeholder="http://example.com/image.jpg">
+          </div>
         </form>
 
         <button ng-click="save()" class="btn btn-primary btn-block" type="button">Get Link</button>
 
         <div class="list-group" ng-show="history.length">
           <h3>History</h3>
-          <p class="text-muted">For this session only. Reloading the page will clear your history.</p>
+          <p class="text-muted">Reloading the page will clear your history.</p>
           <ul ng-repeat="item in history">
             <li><a ng-href="{{item.href}}" target="_blank">{{item.id}}</a></li>
           </ul>
@@ -51,7 +71,8 @@
             <div class="inner"></div>
             <div class="screen">
               <div id="output">
-                <img src="images/header.jpg" id="header">
+                <img src="images/header_ui.png" id="headerui">
+                <img ng-src="{{headerImg}}" id="header">
                 <section id="section-info">
                   <img src="images/logo.jpg" id="logo">
                   <div id="info">

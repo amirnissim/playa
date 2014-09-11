@@ -1,10 +1,15 @@
 angular.module('Playa', [])
   .controller('MainCtrl', function($scope, JSONStore) {
 
+    var defaultHeaderImg = 'images/header.jpg';
+
+    $scope.headerImg = defaultHeaderImg;
+
     $scope.appName = 'EverythingMe Launcher';
 
     $scope.appDescription = 'EverythingMe delivers what you need, when ' +
                             'you need it, right to your homescreen.';
+
     $scope.developerName = 'EverythingMe';
 
     // history for saved configurations. an array of object like:
@@ -12,7 +17,10 @@ angular.module('Playa', [])
     //  id: str
     //  href: url
     // }
-    $scope.history = [];
+    $scope.history = [{
+      id: "1f7dabd3a6449b86a8fd",
+      href: "https://gist.github.com/1f7dabd3a6449b86a8fd"
+    }];
 
     $scope.save = function save() {
       return JSONStore
@@ -29,6 +37,10 @@ angular.module('Playa', [])
         });
       });
     };
+
+    $scope.$watch('customHeaderImg', function(value) {
+      $scope.headerImg = value ? value : defaultHeaderImg;
+    });
   })
 
   /**

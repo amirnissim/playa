@@ -9,7 +9,7 @@
       $scope.videos = {
         perfectPhone: '//www.youtube.com/embed/9fHOYuzsIZo',
         amazingThings: '//www.youtube.com/embed/xGpxWzs1UCM'
-      }
+      };
 
       $scope.headerImg = _headerImg;
 
@@ -21,6 +21,8 @@
       $scope.developerName = 'EverythingMe';
 
       $scope.videoSrc = $scope.videos.perfectPhone;
+
+      $scope.galleryImg = 'images/gallery.jpg';
 
       // history for saved configurations. an array of object like:
       // {

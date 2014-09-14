@@ -95,8 +95,11 @@ section {
   color: #b2cb39;
   text-transform: uppercase;
 }
+#gallerycontainer {
+  overflow: scroll;
+}
 #gallery {
-  width: 100%;
+  height: 200px;
 }
 
 

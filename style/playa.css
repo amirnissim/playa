@@ -98,3 +98,11 @@ section {
 #gallery {
   width: 100%;
 }
+
+
+/**
+ * Video page
+ */
+#videocontainer {
+  height: 100%;
+}

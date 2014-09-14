@@ -1,9 +1,28 @@
-angular.module('Playa', [])
-  .controller('MainCtrl', function($scope, JSONStore) {
+angular.module('Playa', ['ngRoute'])
+  .config(function ($routeProvider, $sceProvider) {
 
-    var defaultHeaderImg = 'images/header.jpg';
+    // turn off $sce so we can use ng-src easily (youtube links in video page)
+    // this is an internal app, we trust our users.
+    $sceProvider.enabled(false);
 
-    $scope.headerImg = defaultHeaderImg;
+    $routeProvider.when('/video', {
+      templateUrl: 'video.html',
+      landscape: true
+    });
+    $routeProvider.otherwise({
+      templateUrl: 'playstore.html'
+    });
+  })
+  .controller('MainCtrl', function($scope, $route, JSONStore) {
+
+    var _headerImg = 'images/header.jpg';
+
+    $scope.videos = {
+      perfectPhone: '//www.youtube.com/embed/9fHOYuzsIZo',
+      amazingThings: '//www.youtube.com/embed/xGpxWzs1UCM'
+    }
+
+    $scope.headerImg = _headerImg;
 
     $scope.appName = 'EverythingMe Launcher';
 
@@ -11,6 +30,8 @@ angular.module('Playa', [])
                             'you need it, right to your homescreen.';
 
     $scope.developerName = 'EverythingMe';
+
+    $scope.videoSrc = $scope.videos.perfectPhone;
 
     // history for saved configurations. an array of object like:
     // {
@@ -39,7 +60,11 @@ angular.module('Playa', [])
     };
 
     $scope.$watch('customHeaderImg', function(value) {
-      $scope.headerImg = value ? value : defaultHeaderImg;
+      $scope.headerImg = value ? value : _headerImg;
+    });
+
+    $scope.$on('$routeChangeSuccess', function(event, routeData){
+      $scope.landscape = routeData.landscape;
     });
   })
 

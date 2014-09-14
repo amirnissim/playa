@@ -6,55 +6,56 @@
 
       var _headerImg = 'images/header.jpg';
 
-      $scope.videos = {
+      this.videos = {
         perfectPhone: '//www.youtube.com/embed/9fHOYuzsIZo',
         amazingThings: '//www.youtube.com/embed/xGpxWzs1UCM'
       };
 
-      $scope.headerImg = _headerImg;
+      this.headerImg = _headerImg;
 
-      $scope.appName = 'EverythingMe Launcher';
+      this.appName = 'EverythingMe Launcher';
 
-      $scope.appDescription = 'EverythingMe delivers what you need, when ' +
+      this.appDescription = 'EverythingMe delivers what you need, when ' +
         'you need it, right to your homescreen.';
 
-      $scope.developerName = 'EverythingMe';
+      this.developerName = 'EverythingMe';
 
-      $scope.videoSrc = $scope.videos.perfectPhone;
+      this.videoSrc = this.videos.perfectPhone;
 
-      $scope.galleryImg = 'images/gallery.jpg';
+      this.galleryImg = 'images/gallery.jpg';
 
       // history for saved configurations. an array of object like:
       // {
       //  id: str
       //  href: url
       // }
-      $scope.history = [{
+      this.history = [{
         id: "1f7dabd3a6449b86a8fd",
         href: "https://gist.github.com/1f7dabd3a6449b86a8fd"
       }];
 
-      $scope.save = function save() {
+      this.save = function save() {
         return JSONStore
           .add({
-            appName: $scope.appName,
-            appDescription: $scope.appDescription,
-            developerName: $scope.developerName
+            appName: this.appName,
+            appDescription: this.appDescription,
+            developerName: this.developerName
           })
           .success(function(result) {
-            $scope.history.push({
+            this.history.push({
               id: result.id,
               href: result.html_url
             });
-          });
+          }.bind(this));
       };
 
-      $scope.$watch('customHeaderImg', function(value) {
-        $scope.headerImg = value ? value : _headerImg;
-      });
+      this.checkHeaderImg = function checkHeaderImg() {
+
+        this.headerImg = this.customHeaderImg ? this.customHeaderImg : _headerImg;
+      };
 
       $scope.$on('$routeChangeSuccess', function(event, routeData) {
-        $scope.landscape = routeData.landscape;
-      });
+        this.landscape = routeData.landscape;
+      }.bind(this));
     })
 })();

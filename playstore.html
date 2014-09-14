@@ -1,11 +1,11 @@
   <div id="output">
     <a href="#/video"><img src="images/header_ui.png" id="headerui"></a>
-    <img ng-src="{{headerImg}}" id="header">
+    <img ng-src="{{app.headerImg}}" id="header">
     <section id="section-info">
       <img src="images/logo.jpg" id="logo">
       <div id="info">
-        <span id="appname">{{appName}}</span>
-        <span id="devname">{{developerName}}</span>
+        <span id="appname">{{app.appName}}</span>
+        <span id="devname">{{app.developerName}}</span>
       </div>
       <!-- <img src="images/wishlist_icon.jpg" id="wishlist"> -->
     </section>
@@ -14,11 +14,11 @@
     </section id="section-badges">
     <img src="images/badges.jpg" id="badges">
     <section id="section-description">
-      <p>{{appDescription}}</p>
+      <p>{{app.appDescription}}</p>
       <span id="readmore">read more</span>
     </section>
     <div id="gallerycontainer">
-      <img ng-src="{{galleryImg}}" id="gallery">
+      <img ng-src="{{app.galleryImg}}" id="gallery">
     </div>
   </div>
 </div>

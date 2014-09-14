@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style/playa.css">
 </head>
 
-<body ng-controller="MainCtrl" ng-cloak>
+<body ng-controller="MainCtrl as app" ng-cloak>
 
   <div class="container">
     <div class="row">
@@ -19,15 +19,15 @@
         <form role="form">
           <div class="form-group">
             <label>App Name</label>
-            <input ng-model="appName" type="text" class="form-control">
+            <input ng-model="app.appName" type="text" class="form-control">
           </div>
           <div class="form-group">
             <label>Developer Name</label>
-            <input ng-model="developerName" type="text" class="form-control">
+            <input ng-model="app.developerName" type="text" class="form-control">
           </div>
           <div class="form-group">
             <label>App Description</label>
-            <input ng-model="appDescription" type="text" class="form-control">
+            <input ng-model="app.appDescription" type="text" class="form-control">
           </div>
 
           <div class="form-group">
@@ -35,19 +35,19 @@
             <span class="help-block">One of the following or any image URL</span>
             <div class="radio">
               <label>
-                <input ng-model="headerImg" type="radio" value="images/header.jpg"> Tagline + Device
+                <input ng-model="app.headerImg" type="radio" value="images/header.jpg"> Tagline + Device
               </label>
               <div class="radio">
                 <label>
-                  <input ng-model="headerImg" type="radio" value="images/header_alt1.jpg"> Brand + Device
+                  <input ng-model="app.headerImg" type="radio" value="images/header_alt1.jpg"> Brand + Device
                 </label>
               </div>
               <label>
-                <input ng-model="headerImg" type="radio" value="images/header_alt2.jpg"> Brand Only
+                <input ng-model="app.headerImg" type="radio" value="images/header_alt2.jpg"> Brand Only
               </label>
             </div>
 
-            <input ng-model="customHeaderImg" type="text" class="form-control" placeholder="http://example.com/image.jpg">
+            <input ng-model="app.customHeaderImg" type="text" class="form-control" placeholder="http://example.com/image.jpg" ng-change="app.checkHeaderImg()">
           </div>
 
           <div class="form-group">
@@ -55,11 +55,11 @@
             <span class="help-block">Click the play button to see changes</span>
             <div class="radio">
               <label>
-                <input ng-model="videoSrc" type="radio" ng-value="videos.perfectPhone"> Perfect Phone
+                <input ng-model="app.videoSrc" type="radio" ng-value="app.videos.perfectPhone"> Perfect Phone
               </label>
               <div class="radio">
                 <label>
-                  <input ng-model="videoSrc" type="radio" ng-value="videos.amazingThings"> Amazing Things
+                  <input ng-model="app.videoSrc" type="radio" ng-value="app.videos.amazingThings"> Amazing Things
                 </label>
               </div>
             </div>
@@ -69,12 +69,12 @@
             <label>Gallery</label>
             <div class="radio">
               <label>
-                <input ng-model="galleryImg" type="radio" value="images/gallery.jpg"> Gallery Set I
+                <input ng-model="app.galleryImg" type="radio" value="images/gallery.jpg"> Gallery Set I
               </label>
             </div>
             <div class="radio">
               <label>
-                <input ng-model="galleryImg" type="radio" value="images/gallery_alt1.jpg"> Gallery Set II
+                <input ng-model="app.galleryImg" type="radio" value="images/gallery_alt1.jpg"> Gallery Set II
               </label>
             </div>
           </div>
@@ -82,19 +82,19 @@
 
         </form>
 
-        <button ng-click="save()" class="btn btn-primary btn-block" type="button">Get Link</button>
+        <button ng-click="app.save()" class="btn btn-primary btn-block" type="button">Get Link</button>
 
-        <div class="list-group" ng-show="history.length">
+        <div class="list-group" ng-show="app.history.length">
           <h3>History</h3>
           <p class="text-muted">Reloading the page will clear your history.</p>
-          <ul ng-repeat="item in history">
+          <ul ng-repeat="item in app.history">
             <li><a ng-href="{{item.href}}" target="_blank">{{item.id}}</a></li>
           </ul>
         </div>
       </div>
 
       <div class="col-lg-8 col-md-8">
-        <div id="nexus5" ng-class="{landscape: landscape}">
+        <div id="nexus5" ng-class="{landscape: app.landscape}">
           <div class="device">
             <div class="button"></div>
             <div class="lock"></div>
